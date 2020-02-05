@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Technical Documentation</title>
+</head>
+<body>
+    <nav id="navbar">
+        <header>JS Documentation</header>
+        <ul>
+            <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+            <li><a class="nav-link" href="#Grammar_and_types">Grammar and types</a></li>
+            <li><a class="nav-link" href="#Control_flow_and_error_handling">Control flow and error handling</a></li>
+            <li><a class="nav-link" href="#Loops_and_iteration">Loops and iteration</a></li>
+            <li><a class="nav-link" href="#Functions">Functions</a></li>
+            <li><a class="nav-link" href="#Expressions_and_operators">Expressions and operators</a></li>
+            <li><a class="nav-link" href="#Numbers_and_dates">Numbers and dates</a></li>
+            <li><a class="nav-link" href="#Text_formatting">Text formatting</a></li>
+            <li><a class="nav-link" href="#Indexed_collections">Indexed collections</a></li>
+            <li><a class="nav-link" href="#Keyed_collections">Keyed collections</a></li>
+            <li><a class="nav-link" href="#Working_with_objects">Working with objects</a></li>
+            <li><a class="nav-link" href="#Details_of_the_object_model">Details of the object model</a></li>
+            <li><a class="nav-link" href="#Promises">Promises</a></li>
+            <li><a class="nav-link" href="#Iterators_and_generators">Iterators and generators</a></li>
+            <li><a class="nav-link" href="#Meta_programming">Meta programming</a></li>
+            <li><a class="nav-link" href="#JavaScript_modules">JavaScript modules</a></li>
+          <li><a class="nav-link" href="#Referrences">Referrences</a></li>
+           
+        </ul>
+    </nav>
+    <main id="main-doc">
+        <section class="main-section" id="Introduction">
+            <header>Introduction</header>
+            <article>
+                <p>
+                    JavaScript is a cross-platform, object-oriented scripting language. It is a small and lightweight language. Inside a host environment (for example, a web browser), JavaScript can be connected to the objects of its environment to provide programmatic control over them.
+                </p>
+                <p>
+                    JavaScript contains a standard library of objects, such as Array, Date, and Math, and a core set of language elements such as operators, control structures, and statements. Core JavaScript can be extended for a variety of purposes by supplementing it with additional objects; for example:
+                </p>
+                <ul>
+                    <li>
+                        Client-side JavaScript extends the core language by supplying objects to control a browser and its Document Object Model (DOM). For example, client-side extensions allow an application to place elements on an HTML form and respond to user events such as mouse clicks, form input, and page navigation.
+                    </li>
+                    <li>
+                        Server-side JavaScript extends the core language by supplying objects relevant to running JavaScript on a server. For example, server-side extensions allow an application to communicate with a database, provide continuity of information from one invocation to another of the application, or perform file manipulations on a server.
+                    </li>
+                </ul>
+
+            </article>
+        </section>
+
+        
+        <section class="main-section" id="Grammar_and_types">
+            <header>Grammar and types</header>
+            <article>
+                <p>
+                    JavaScript borrows most of its syntax from Java, C, and C++, but it has also been influenced by Awk, Perl, and Python.
+                </p>
+                <p>
+                    JavaScript is <strong>case-sensitive</strong> and uses the <strong>Unicode</strong> character set. For example, the word Früh (which means "early" in German) could be used as a variable name.
+                </p>
+                <code>let Früh = "foobar"</code>
+                <p>But, the variable <span class="bg-txt">früh</span> is not the same as <span class="bg-txt">Früh</span> because JavaScript is case sensitive.</p>
+                <p>In JavaScript, instructions are called <span class="txt-underline">statements</span> and are separated by semicolons (;).</p>
+                <p>A semicolon is not necessary after a statement if it is written on its own line. But if more than one statement on a line is desired, then they <em>must</em> be separated by semicolons.</p>
+                <p>It is considered best practice, however, to always write a semicolon after a statement, even when it is not strictly needed. This practice reduces the chances of bugs getting into the code.</p>
+
+            <h4>Comments</h4>
+                <p>The syntax of <strong>comments</strong> is the same as in C++ and in many other languages:</p>
+                <code>// a one line comment<br>
+ 
+                    /* this is a longer, <br>
+                     * multi-line comment<br>
+                     */<br>
+                     
+                    /* You can't, however, /* nest comments */ SyntaxError */<br>
+                </code>
+                <p>Comments behave like whitespace, and are discarded during script execution.</p>
+            </article>
+        </section>
+
+        
+        <section class="main-section" id="Control_flow_and_error_handling">
+            <header>Control flow and error handling</header>
+            <article>
+                <p>
+                        The most basic statement is a block statement, which is used to group statements. The block is delimited by a pair of curly brackets:
+                </p>
+                <code>
+                        {<br>
+                            statement_1;<br>
+                            statement_2;<br>
+                            .<br>
+                            .<br>
+                            .<br>
+                            statement_n;<br>
+                          }<br>
+                </code>
+            <h4>Conditional statements</h4>
+                <p>
+                        A conditional statement is a set of commands that executes if a specified condition is true. JavaScript supports two conditional statements: <span class="bg-txt">if...else</span> and <span class="bg-txt">switch</span>.
+                </p>
+          <h4>if...else statement</h4>
+              <p>Use the if statement to execute a statement if a logical condition is true. Use the optional else clause to execute a statement if the condition is false.</p>
+              <code>if (condition) {<br>
+statement_1;<br>
+} else {<br>
+statement_2;<br>
+                }<br>
+              </code>
+              <p>
+                Here, the condition can be any expression that evaluates to true or false. (See Boolean for an explanation of what evaluates to true and false.)
+
+If condition evaluates to true, statement_1 is executed. Otherwise, statement_2 is executed. statement_1 and statement_2 can be any statement, including further nested if statements.
+
+You can also compound the statements using else if to have multiple conditions tested in sequence, as follows:
+              </p>
+              <code>
+                if (condition_1) {<br>
+statement_1;<br>
+} else if (condition_2) {<br>
+statement_2;<br>
+} else if (condition_n) {<br>
+statement_n;<br>
+} else {<br>
+statement_last;<br>
+} <br>
+              </code>
+          </article>
+        </section>
+        
+        <section class="main-section" id="Loops_and_iteration">
+            <header>Loops and iteration</header>
+            <article>
+                <p>
+                   There are many different kinds of loops, but they all essentially do the same thing: they repeat an action some number of times. (Note that it's possible that number could be zero!).
+                </p>
+                <p>
+                   The various loop mechanisms offer different ways to determine the start and end points of the loop. There are various situations that are more easily served by one type of loop over the others.
+                </p>
+              <p>
+                The statements for loops provided in JavaScript are:
+              </p>
+                <ul>
+                    <li>
+                        for statement
+                    </li>
+                    <li>
+                        do...while statement
+                    </li>
+                   <li>
+                        while statement
+                    </li>
+                    <li>
+                        labelled statement
+                    </li>
+                </ul>
+
+            </article>
+        </section>
+        
+        <section class="main-section" id="Functions">
+            <header>Functions</header>
+            <article>
+                <p>
+                    JavaScript is a cross-platform, object-oriented scripting language. It is a small and lightweight language. Inside a host environment (for example, a web browser), JavaScript can be connected to the objects of its environment to provide programmatic control over them.
+                </p>
+                <p>
+                    JavaScript contains a standard library of objects, such as Array, Date, and Math, and a core set of language elements such as operators, control structures, and statements. Core JavaScript can be extended for a variety of purposes by supplementing it with additional objects; for example:
+                </p>
+                <ul>
+                    <li>
+                        Client-side JavaScript extends the core language by supplying objects to control a browser and its Document Object Model (DOM). For example, client-side extensions allow an application to place elements on an HTML form and respond to user events such as mouse clicks, form input, and page navigation.
+                    </li>
+                    <li>
+                        Server-side JavaScript extends the core language by supplying objects relevant to running JavaScript on a server. For example, server-side extensions allow an application to communicate with a database, provide continuity of information from one invocation to another of the application, or perform file manipulations on a server.
+                    </li>
+                </ul>
+
+            </article>
+        </section>
+        
+        <section class="main-section" id="Expressions_and_operators">
+            <header>Expressions and operators</header>
+            <article>
+                <p>
+                    JavaScript is a cross-platform, object-oriented scripting language. It is a small and lightweight language. Inside a host environment (for example, a web browser), JavaScript can be connected to the objects of its environment to provide programmatic control over them.
+                </p>
+                <p>
+                    JavaScript contains a standard library of objects, such as Array, Date, and Math, and a core set of language elements such as operators, control structures, and statements. Core JavaScript can be extended for a variety of purposes by supplementing it with additional objects; for example:
+                </p>
+                <ul>
+                    <li>
+                        Client-side JavaScript extends the core language by supplying objects to control a browser and its Document Object Model (DOM). For example, client-side extensions allow an application to place elements on an HTML form and respond to user events such as mouse clicks, form input, and page navigation.
+                    </li>
+                    <li>
+                        Server-side JavaScript extends the core language by supplying objects relevant to running JavaScript on a server. For example, server-side extensions allow an application to communicate with a database, provide continuity of information from one invocation to another of the application, or perform file manipulations on a server.
+                    </li>
+                </ul>
+
+            </article>
+        </section>
+        
+        <section class="main-section" id="Numbers_and_dates">
+            <header>Numbers and dates</header>
+            <article>
+                <p>
+                    JavaScript is a cross-platform, object-oriented scripting language. It is a small and lightweight language. Inside a host environment (for example, a web browser), JavaScript can be connected to the objects of its environment to provide programmatic control over them.
+                </p>
+                <p>
+                    JavaScript contains a standard library of objects, such as Array, Date, and Math, and a core set of language elements such as operators, control structures, and statements. Core JavaScript can be extended for a variety of purposes by supplementing it with additional objects; for example:
+                </p>
+                <ul>
+                    <li>
+                        Client-side JavaScript extends the core language by supplying objects to control a browser and its Document Object Model (DOM). For example, client-side extensions allow an application to place elements on an HTML form and respond to user events such as mouse clicks, form input, and page navigation.
+                    </li>
+                    <li>
+                        Server-side JavaScript extends the core language by supplying objects relevant to running JavaScript on a server. For example, server-side extensions allow an application to communicate with a database, provide continuity of information from one invocation to another of the application, or perform file manipulations on a server.
+                    </li>
+                </ul>
+
+            </article>
+        </section>
+        
+        <section class="main-section" id="Text_formatting">
+            <header>Text formatting</header>
+            <article>
+                <p>
+                    JavaScript is a cross-platform, object-oriented scripting language. It is a small and lightweight language. Inside a host environment (for example, a web browser), JavaScript can be connected to the objects of its environment to provide programmatic control over them.
+                </p>
+                <p>
+                    JavaScript contains a standard library of objects, such as Array, Date, and Math, and a core set of language elements such as operators, control structures, and statements. Core JavaScript can be extended for a variety of purposes by supplementing it with additional objects; for example:
+                </p>
+                <ul>
+                    <li>
+                        Client-side JavaScript extends the core language by supplying objects to control a browser and its Document Object Model (DOM). For example, client-side extensions allow an application to place elements on an HTML form and respond to user events such as mouse clicks, form input, and page navigation.
+                    </li>
+                    <li>
+                        Server-side JavaScript extends the core language by supplying objects relevant to running JavaScript on a server. For example, server-side extensions allow an application to communicate with a database, provide continuity of information from one invocation to another of the application, or perform file manipulations on a server.
+                    </li>
+                </ul>
+
+            </article>
+        </section>
+        
+        <section class="main-section" id="Indexed_collections">
+            <header>Indexed collections</header>
+            <article>
+                <p>
+                    JavaScript is a cross-platform, object-oriented scripting language. It is a small and lightweight language. Inside a host environment (for example, a web browser), JavaScript can be connected to the objects of its environment to provide programmatic control over them.
+                </p>
+                <p>
+                    JavaScript contains a standard library of objects, such as Array, Date, and Math, and a core set of language elements such as operators, control structures, and statements. Core JavaScript can be extended for a variety of purposes by supplementing it with additional objects; for example:
+                </p>
+                <ul>
+                    <li>
+                        Client-side JavaScript extends the core language by supplying objects to control a browser and its Document Object Model (DOM). For example, client-side extensions allow an application to place elements on an HTML form and respond to user events such as mouse clicks, form input, and page navigation.
+                    </li>
+                    <li>
+                        Server-side JavaScript extends the core language by supplying objects relevant to running JavaScript on a server. For example, server-side extensions allow an application to communicate with a database, provide continuity of information from one invocation to another of the application, or perform file manipulations on a server.
+                    </li>
+                </ul>
+
+            </article>
+        </section>
+        
+        <section class="main-section" id="Keyed_collections">
+            <header>Keyed collections</header>
+            <article>
+                <p>
+                    JavaScript is a cross-platform, object-oriented scripting language. It is a small and lightweight language. Inside a host environment (for example, a web browser), JavaScript can be connected to the objects of its environment to provide programmatic control over them.
+                </p>
+                <p>
+                    JavaScript contains a standard library of objects, such as Array, Date, and Math, and a core set of language elements such as operators, control structures, and statements. Core JavaScript can be extended for a variety of purposes by supplementing it with additional objects; for example:
+                </p>
+                <ul>
+                    <li>
+                        Client-side JavaScript extends the core language by supplying objects to control a browser and its Document Object Model (DOM). For example, client-side extensions allow an application to place elements on an HTML form and respond to user events such as mouse clicks, form input, and page navigation.
+                    </li>
+                    <li>
+                        Server-side JavaScript extends the core language by supplying objects relevant to running JavaScript on a server. For example, server-side extensions allow an application to communicate with a database, provide continuity of information from one invocation to another of the application, or perform file manipulations on a server.
+                    </li>
+                </ul>
+
+            </article>
+        </section>
+        
+        <section class="main-section" id="Working_with_objects">
+            <header>Working with objects</header>
+            <article>
+                <p>
+                    JavaScript is a cross-platform, object-oriented scripting language. It is a small and lightweight language. Inside a host environment (for example, a web browser), JavaScript can be connected to the objects of its environment to provide programmatic control over them.
+                </p>
+                <p>
+                    JavaScript contains a standard library of objects, such as Array, Date, and Math, and a core set of language elements such as operators, control structures, and statements. Core JavaScript can be extended for a variety of purposes by supplementing it with additional objects; for example:
+                </p>
+                <ul>
+                    <li>
+                        Client-side JavaScript extends the core language by supplying objects to control a browser and its Document Object Model (DOM). For example, client-side extensions allow an application to place elements on an HTML form and respond to user events such as mouse clicks, form input, and page navigation.
+                    </li>
+                    <li>
+                        Server-side JavaScript extends the core language by supplying objects relevant to running JavaScript on a server. For example, server-side extensions allow an application to communicate with a database, provide continuity of information from one invocation to another of the application, or perform file manipulations on a server.
+                    </li>
+                </ul>
+
+            </article>
+        </section>
+        
+        <section class="main-section" id="Details_of_the_object_model">
+            <header>Details of the object model</header>
+            <article>
+                <p>
+                    JavaScript is a cross-platform, object-oriented scripting language. It is a small and lightweight language. Inside a host environment (for example, a web browser), JavaScript can be connected to the objects of its environment to provide programmatic control over them.
+                </p>
+                <p>
+                    JavaScript contains a standard library of objects, such as Array, Date, and Math, and a core set of language elements such as operators, control structures, and statements. Core JavaScript can be extended for a variety of purposes by supplementing it with additional objects; for example:
+                </p>
+                <ul>
+                    <li>
+                        Client-side JavaScript extends the core language by supplying objects to control a browser and its Document Object Model (DOM). For example, client-side extensions allow an application to place elements on an HTML form and respond to user events such as mouse clicks, form input, and page navigation.
+                    </li>
+                    <li>
+                        Server-side JavaScript extends the core language by supplying objects relevant to running JavaScript on a server. For example, server-side extensions allow an application to communicate with a database, provide continuity of information from one invocation to another of the application, or perform file manipulations on a server.
+                    </li>
+                </ul>
+
+            </article>
+        </section>
+        
+        <section class="main-section" id="Promises">
+            <header>Promises</header>
+            <article>
+                <p>
+                    JavaScript is a cross-platform, object-oriented scripting language. It is a small and lightweight language. Inside a host environment (for example, a web browser), JavaScript can be connected to the objects of its environment to provide programmatic control over them.
+                </p>
+                <p>
+                    JavaScript contains a standard library of objects, such as Array, Date, and Math, and a core set of language elements such as operators, control structures, and statements. Core JavaScript can be extended for a variety of purposes by supplementing it with additional objects; for example:
+                </p>
+                <ul>
+                    <li>
+                        Client-side JavaScript extends the core language by supplying objects to control a browser and its Document Object Model (DOM). For example, client-side extensions allow an application to place elements on an HTML form and respond to user events such as mouse clicks, form input, and page navigation.
+                    </li>
+                    <li>
+                        Server-side JavaScript extends the core language by supplying objects relevant to running JavaScript on a server. For example, server-side extensions allow an application to communicate with a database, provide continuity of information from one invocation to another of the application, or perform file manipulations on a server.
+                    </li>
+                </ul>
+
+            </article>
+        </section>
+        
+        <section class="main-section" id="Iterators_and_generators">
+            <header>Iterators and generators</header>
+            <article>
+                <p>
+                    JavaScript is a cross-platform, object-oriented scripting language. It is a small and lightweight language. Inside a host environment (for example, a web browser), JavaScript can be connected to the objects of its environment to provide programmatic control over them.
+                </p>
+                <p>
+                    JavaScript contains a standard library of objects, such as Array, Date, and Math, and a core set of language elements such as operators, control structures, and statements. Core JavaScript can be extended for a variety of purposes by supplementing it with additional objects; for example:
+                </p>
+                <ul>
+                    <li>
+                        Client-side JavaScript extends the core language by supplying objects to control a browser and its Document Object Model (DOM). For example, client-side extensions allow an application to place elements on an HTML form and respond to user events such as mouse clicks, form input, and page navigation.
+                    </li>
+                    <li>
+                        Server-side JavaScript extends the core language by supplying objects relevant to running JavaScript on a server. For example, server-side extensions allow an application to communicate with a database, provide continuity of information from one invocation to another of the application, or perform file manipulations on a server.
+                    </li>
+                </ul>
+
+            </article>
+        </section>
+        
+        <section class="main-section" id="Meta_programming">
+            <header>Meta programming</header>
+            <article>
+                <p>
+                    JavaScript is a cross-platform, object-oriented scripting language. It is a small and lightweight language. Inside a host environment (for example, a web browser), JavaScript can be connected to the objects of its environment to provide programmatic control over them.
+                </p>
+                <p>
+                    JavaScript contains a standard library of objects, such as Array, Date, and Math, and a core set of language elements such as operators, control structures, and statements. Core JavaScript can be extended for a variety of purposes by supplementing it with additional objects; for example:
+                </p>
+                <ul>
+                    <li>
+                        Client-side JavaScript extends the core language by supplying objects to control a browser and its Document Object Model (DOM). For example, client-side extensions allow an application to place elements on an HTML form and respond to user events such as mouse clicks, form input, and page navigation.
+                    </li>
+                    <li>
+                        Server-side JavaScript extends the core language by supplying objects relevant to running JavaScript on a server. For example, server-side extensions allow an application to communicate with a database, provide continuity of information from one invocation to another of the application, or perform file manipulations on a server.
+                    </li>
+                </ul>
+
+            </article>
+        </section>
+        
+        <section class="main-section" id="JavaScript_modules">
+            <header>JavaScript modules</header>
+            <article>
+                <p>
+                    JavaScript is a cross-platform, object-oriented scripting language. It is a small and lightweight language. Inside a host environment (for example, a web browser), JavaScript can be connected to the objects of its environment to provide programmatic control over them.
+                </p>
+                <p>
+                    JavaScript contains a standard library of objects, such as Array, Date, and Math, and a core set of language elements such as operators, control structures, and statements. Core JavaScript can be extended for a variety of purposes by supplementing it with additional objects; for example:
+                </p>
+                <ul>
+                    <li>
+                        Client-side JavaScript extends the core language by supplying objects to control a browser and its Document Object Model (DOM). For example, client-side extensions allow an application to place elements on an HTML form and respond to user events such as mouse clicks, form input, and page navigation.
+                    </li>
+                    <li>
+                        Server-side JavaScript extends the core language by supplying objects relevant to running JavaScript on a server. For example, server-side extensions allow an application to communicate with a database, provide continuity of information from one invocation to another of the application, or perform file manipulations on a server.
+                    </li>
+                </ul>
+
+            </article>
+        </section>
+      <section class="main-section" id="Referrences">
+        <header>Referrences</header>
+        <ul>
+          <li>All the documentation in this page is taken from <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide" target="_blank">MDN</a></li>
+        </ul>
+      </section>
+    </main>
+</body>
+</html>
